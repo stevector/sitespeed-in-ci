@@ -14,7 +14,7 @@ jobs:
                 command: mkdir /tmp/artifacts
             - run:
                 name: Run sitespeed
-                command:  cd ~/sitespeed.io && ls -al && bin/sitespeed.js https://pantheon.io --outputFolder /tmp/artifacts
+                command:  /usr/src/app/bin/sitespeed.js https://pantheon.io --outputFolder /tmp/artifacts
             - store_artifacts:
                 path: /tmp/artifacts
                 destination: artifacts
