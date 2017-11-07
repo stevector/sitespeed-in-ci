@@ -1,0 +1,28 @@
+version: 2
+jobs:
+
+
+    build:
+
+        docker:
+            - image: sitespeedio/sitespeed.io
+        working_directory: ~/example_drops_8_composer
+        steps:
+            - checkout
+            - run:
+                name: mkdir
+                command: mkdir /tmp/artifacts
+            - run:
+                name: Run sitespeed
+                command: sitespeed.io https://pantheon.io --outputFolder /tmp/artifacts
+            - store_artifacts:
+                path: /tmp/artifacts
+                destination: artifacts
+
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      # Install dev dependencies and do simple tests (sniff, unit tests, etc.)
+      - build
