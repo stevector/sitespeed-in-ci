@@ -6,7 +6,7 @@ jobs:
 
         docker:
             - image: sitespeedio/sitespeed.io
-        working_directory: ~/sitespeed.io
+        working_directory: ~/checkout
         steps:
             - checkout
             - run:
