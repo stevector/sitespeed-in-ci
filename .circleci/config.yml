@@ -6,7 +6,7 @@ jobs:
 
         docker:
             - image: sitespeedio/sitespeed.io
-        working_directory: ~/example_drops_8_composer
+        working_directory: ~/sitespeed.io
         steps:
             - checkout
             - run:
@@ -14,7 +14,7 @@ jobs:
                 command: mkdir /tmp/artifacts
             - run:
                 name: Run sitespeed
-                command:  compgen -c # sitespeed.io https://pantheon.io --outputFolder /tmp/artifacts
+                command:  bin/sitespeed.js https://pantheon.io --outputFolder /tmp/artifacts
             - store_artifacts:
                 path: /tmp/artifacts
                 destination: artifacts
